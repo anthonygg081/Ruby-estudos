@@ -1,15 +1,15 @@
 def cadastrar_aluno(alunos)
     print "Digite o nome do novo aluno: "
     nome = gets.chomp.strip #strip pra limpar os espaços e detectar nomes vazios
+
+    aluno_existente = alunos.find do |aluno|
+      aluno[:nome] == nome
+    end
+
     if nome.empty?
       puts "Nome inválido."
-    elsif
-      aluno_existente = alunos.find do |aluno|
-      aluno[:nome] == nome
-      if aluno_existente == true 
+    elsif aluno_existente    
       puts "Aluno já cadastrado."
-      end
-      end
     else
       print "Digite a idade do novo aluno: "
       idade = gets.chomp.to_i
